@@ -10,22 +10,12 @@ response = requests.get(kademe_url)
 
 # Parse text obtained
 soup = BeautifulSoup(response.text, 'html.parser')
+   
+eslesen_haftalar = soup.find_all(lambda tag: len(tag.find_all('a')) == 0 and hafta +". Hafta" in tag.text)
 
-# Find all hyperlinks present on webpage
-#links = soup.find(text=[hafta + "hafta"])
-#print(links)
-
-                
-                    
-matched_tags = soup.find_all(lambda tag: len(tag.find_all('a')) == 0 and hafta +". Hafta" in tag.text)
-
-for matched_tag in matched_tags:
-       print("Matched:", matched_tag)
-
-
-for link in matched_tags:
+for link in eslesen_haftalar:
     if ('.docx' in link.get('href', [])):
-        print("Downloading file: ")
+        print("Dosya indiriliyor... ")
     
     # Get response object for link
         response = requests.get(link.get('href'))
@@ -34,6 +24,6 @@ for link in matched_tags:
         docx = open(kademe + ". Sınıf " + hafta + ". Hafta" + ".docx", 'wb')
         docx.write(response.content)
         docx.close()
-    print("File downloaded")
 
-print("Finish")
+
+print("İşlem tamamlandı.")

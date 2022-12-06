@@ -1,4 +1,3 @@
-#!/usr/bin/python
 import requests
 from bs4 import BeautifulSoup
 
@@ -13,23 +12,28 @@ response = requests.get(kademe_url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
 # Find all hyperlinks present on webpage
-links = soup.find_all('a')
-print(links)
+#links = soup.find(text=[hafta + "hafta"])
+#print(links)
 
-i = 0
+                
+                    
+matched_tags = soup.find_all(lambda tag: len(tag.find_all('a')) == 0 and hafta +". Hafta" in tag.text)
 
-for link in links:
+for matched_tag in matched_tags:
+       print("Matched:", matched_tag)
+
+
+for link in matched_tags:
     if ('.docx' in link.get('href', [])):
-        i += 1
-        print("Downloading file: ", i)
+        print("Downloading file: ")
     
     # Get response object for link
         response = requests.get(link.get('href'))
 
     # Write content in docx file
-        docx = open("docx"+str(i)+".docx", 'wb')
+        docx = open(kademe + ". Sınıf " + hafta + ". Hafta" + ".docx", 'wb')
         docx.write(response.content)
         docx.close()
-    print("File ", i, " downloaded")
+    print("File downloaded")
 
-print("Downloaded")
+print("Finish")

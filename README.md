@@ -1,6 +1,6 @@
 # 😊 Description
 
-This scraper is an tool to scrape related daily plans for primary, middle and high school English classes.
+This scraper is an tool to scrape specific daily plans for primary, middle and high school English classes.
 
 
 # ⚙️ Usage

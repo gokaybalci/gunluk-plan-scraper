@@ -24,6 +24,4 @@ for link in eslesen_haftalar:
         docx = open(kademe + ". Sınıf " + hafta + ". Hafta" + ".docx", 'wb')
         docx.write(response.content)
         docx.close()
-
-
 print("İşlem tamamlandı.")

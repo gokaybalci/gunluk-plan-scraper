@@ -9,6 +9,7 @@ python3 scraper.py
 ```
 
 # ✔️ Requirements
+- BeautifulSoup
 - Python >= 3.10
 
 # 📮 Details

@@ -11,8 +11,10 @@ python3 scraper.py
 # ✔️ Requirements
 - BeautifulSoup4
 - Python >= 3.10
+- python-docx
 
 # 📮 Details
+- Changes the names of the teachers and principal in the document and removes trademark in the new version.
 
 ## Obvious disclaimer
 

@@ -4,10 +4,10 @@ from bs4 import BeautifulSoup
 
 from docx import Document
 
-kademe = input("Kademe seçiniz: ")
-hafta = input("Hafta seçiniz: ")
-oisim = input("İsminiz: ")
-misim = input("İdareci ismi: ")
+kademe = input("Kademe seçiniz: ") # Grade level
+hafta = input("Hafta seçiniz: ") # Week number for daily plans
+oisim = input("İsminiz: ") # Name of the teacher
+misim = input("İdareci ismi: ") # Name of the principle
 dot_count = 0  # Counter for number of occurrences of 'dots' in given documents
 
 kademe_url = str("https://www.ingilizceciyiz.com/"+kademe+"-sinif-ingilizce-gunluk-plan/")
